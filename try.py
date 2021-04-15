@@ -1,9 +1,9 @@
 class A:
     a=10
-    def use():
-        a*=2
-        print(a)
+    def use(self):
+        self.a*=2
+        print(self.a)
 
 
 n=A
-n.use()
+n.use(n)
