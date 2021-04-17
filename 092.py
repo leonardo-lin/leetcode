@@ -11,18 +11,19 @@ class Solution(object):
         :type right: int
         :rtype: ListNode
         """
-        
+        if head.next==None:
+            return head
         count=1
         l=0
         r=0
         last=0
         start=0
         now=head
-        count=1
+        """count=0
         while count<5:
             print(now.val)
             now=now.next
-            count+=1
+            count+=1"""
         print('all')
         count=1
         now=head
@@ -36,7 +37,7 @@ class Solution(object):
             if count==right:
                 r=now
                 last=r.next
-                print('in')
+                print('in2')
                 break
             print(count,now.val)
             now=now.next
@@ -44,10 +45,19 @@ class Solution(object):
         if left==1:
             start=None
         
-        print(l.val,r.val,start.val,last.val)
+        #print(l.val,r.val,start.val,last.val)
+        """tmp=head
+        count=0
+        while count<5:
+            print(tmp.val)
+            tmp=tmp.next
+            count+=1"""
         now=l
+        #print(now.val)
         back=last
-        start.next=r
+        if head!=now:
+            start.next=r
+        #start.next=r
         ford=l.next
         while now != r:
             print('in',now.val)
@@ -58,11 +68,15 @@ class Solution(object):
         now.next=back
         back=now
         now=ford
-        ford=now.next 
+        if(now!=None):
+            ford=now.next
+        if left==1:
+            head=r 
+            print(head.val)
         now=head
-        count=1
-        while count<6:
-            print(now.val)
+        count=0
+        while count<2:
+            print('*',now.val)
             now=now.next
             count+=1
         return head
@@ -79,8 +93,8 @@ def main():
     c=ListNode(2,b)
     d=ListNode(1,c)
     
-    print(side.reverseBetween(side,d,2,4))
-    print()
+    print(side.reverseBetween(side,a,1,2))
+    
     
 
 if __name__ == "__main__":
